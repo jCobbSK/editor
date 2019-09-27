@@ -1,6 +1,6 @@
 const $ = require('jquery');
 
-const NUMBER_OF_ASSETS = 4;
+const NUMBER_OF_ASSETS = 6;
 
 function addOption(name, value) {
   $('.asset-select').append($('<option></option>').attr('value', value).text(name));
