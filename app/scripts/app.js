@@ -22,6 +22,7 @@ require('brace/mode/html');
 require('brace/theme/vibrant_ink');
 require('brace/ext/searchbox');
 const initTaskSwitcher = require('./taskSwitcher');
+const initTimer = require('./timer');
 
 class App {
   static initClass() {
@@ -113,6 +114,7 @@ class App {
       window.requestAnimationFrame(this.onFrame);
     }
     initTaskSwitcher();
+    initTimer();
   }
 
   setupAce() {
