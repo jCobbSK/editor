@@ -78,6 +78,7 @@ class App {
     this.onClickReference = this.onClickReference.bind(this);
     this.onClickFinish = this.onClickFinish.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.onClickPreview = this.onClickPreview.bind(this);
     this.$streakCounter = $('.streak-container .counter');
     this.$streakBar = $('.streak-container .bar');
     this.$exclamations = $('.streak-container .exclamations');
@@ -88,6 +89,7 @@ class App {
     this.canvas = this.setupCanvas();
     this.canvasContext = this.canvas.getContext('2d');
     this.$finish = $('.finish-button');
+    this.$preview = $('.actual-preview-container');
 
     this.$body = $('body');
 
@@ -107,6 +109,7 @@ class App {
     this.$reference.on('click', this.onClickReference);
     this.$finish.on('click', this.onClickFinish);
     this.$nameTag.on('click', () => this.getName(true));
+    this.$preview.on('click', this.onClickPreview);
 
     this.getName();
 
@@ -321,6 +324,11 @@ class App {
       this.$result[0].contentWindow.postMessage(this.editor.getValue(), '*');
       return this.$result.show();
     }
+  }
+
+  onClickPreview() {
+    this.$result[0].contentWindow.postMessage(this.editor.getValue(), '*');
+    this.$preview.toggleClass('active');
   }
 
   onChange(e) {
